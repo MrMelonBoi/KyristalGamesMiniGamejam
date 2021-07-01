@@ -26,9 +26,13 @@ public class player_controller : MonoBehaviour
 
 
 
-        if(Input.GetKeyDown(KeyCode.UpArrow) && gc.groundedInput)
+        if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
-            rb2d.AddForce(transform.up * 300);
+            if(gc.groundedInput)
+            {
+                rb2d.AddForce(transform.up * 300);
+            }
+            
         }
     }
 }
