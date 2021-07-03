@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class followPlayer : MonoBehaviour
 {
+    public Vector3 playerPos;
     
     void Start()
     {
@@ -11,12 +12,16 @@ public class followPlayer : MonoBehaviour
     }
 
     
-    void LateUpdate()
+    void Update()
     {
         if(GameObject.Find("player") != null)
         {
-            transform.position = new Vector3(GameObject.Find("player").transform.position.x, GameObject.Find("player").transform.position.y, -10);
+            playerPos = new Vector3(GameObject.Find("player").transform.position.x, GameObject.Find("player").transform.position.y, -10);
         }
-        
+    }
+
+    void LateUpdate()
+    {
+        transform.position = playerPos;
     }
 }

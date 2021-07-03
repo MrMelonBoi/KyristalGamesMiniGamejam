@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class player_controller : MonoBehaviour
 {
-    public float moveSpeed;
+    public float moveSpeed, jumpPower;
 
     public ground_check gc;
     public Rigidbody2D rb2d;
+
+    public GameObject deathEffect;
     
     void Start()
     {
@@ -38,13 +40,16 @@ public class player_controller : MonoBehaviour
         {
             if(gc.groundedInput)
             {
-                rb2d.AddForce(transform.up * 300);
+                rb2d.AddForce(transform.up * 100 * jumpPower);
             }
             
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+
+
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "enemy")
         {

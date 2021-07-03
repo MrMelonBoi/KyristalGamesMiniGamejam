@@ -5,8 +5,8 @@ using UnityEngine;
 public class DUJMAN : MonoBehaviour
 {
     public float speed = 2f; //Folow Speed
-    public bool hasTarget = false; //ilerlemek için bir hedefim var mý
-    public GameObject target; //yaklaþmak istediðim hedef
+    public bool hasTarget = false; //ilerlemek iï¿½in bir hedefim var mï¿½
+    public GameObject target; //yaklaï¿½mak istediï¿½im hedef
     private Rigidbody2D rb;
     public GameObject Dujman;
     public Transform gameobject;
@@ -18,6 +18,11 @@ public class DUJMAN : MonoBehaviour
 
     private void Update()
     {
+        if(target == null)
+        {
+            return;
+        }
+
         if (hasTarget)
         {
             //get distance between me and my target
@@ -31,7 +36,7 @@ public class DUJMAN : MonoBehaviour
         }
     }
 
-    //  bir þey artýk benimle çarpýþmýyorsa bu kodu çalýþtýracaðým
+    //  bir ï¿½ey artï¿½k benimle ï¿½arpï¿½ï¿½mï¿½yorsa bu kodu ï¿½alï¿½ï¿½tï¿½racaï¿½ï¿½m
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -42,7 +47,7 @@ public class DUJMAN : MonoBehaviour
         }
     }
 
-    //eðer fazla collider yaparsa benimle bu baþlar
+    //eï¿½er fazla collider yaparsa benimle bu baï¿½lar
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.name.Equals("PlayerObject"))
@@ -54,7 +59,7 @@ public class DUJMAN : MonoBehaviour
 
     private void follow(Transform target)
     {
-        // Takip edebilmesi için güç ekle
+        // Takip edebilmesi iï¿½in gï¿½ï¿½ ekle
         rb.AddForce((target.transform.position - transform.position).normalized * speed);
     }
 

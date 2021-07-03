@@ -29,7 +29,6 @@ public class combatPistol : MonoBehaviour
 
     void shoot()
     {
-        Debug.Log("combat pistol shot!");
         var bulletShot = Instantiate(bullet, transform.position, transform.rotation);
         bulletShot.GetComponent<bullet>().config(5, "enemy");
         Destroy(bulletShot, 5);

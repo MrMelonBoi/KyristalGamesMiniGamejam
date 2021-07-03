@@ -32,7 +32,12 @@ public class bullet : MonoBehaviour
             var colEff = Instantiate(collisionEffect, transform.position, Quaternion.identity);
             Destroy(colEff, 1);
             Destroy(gameObject);
+
+            
         }
 
     }
+
+
+
 }
